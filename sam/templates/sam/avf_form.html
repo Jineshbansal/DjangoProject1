@@ -1,0 +1,41 @@
+{%load static%}
+<!DOCTYPE html>
+<!---Coding By CodingLab | www.codinglabweb.com--->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!--<title>Registration Form in HTML CSS</title>-->
+    <!---Custom CSS File--->
+    <link rel="stylesheet" href="{% static 'sam/style1.css' %}"  />
+  </head>
+  <body>
+    <section class="container">
+      <header>Registration Form</header>
+      <form class="form" method="POST">
+        {% csrf_token %}
+        <div class="input-box">
+          <label>Alum_id</label>
+          <input type="text" placeholder="Alum_id" name="alum_id"required />
+        </div>
+
+        <div class="input-box">
+          <label>Branch</label>
+          <input type="text" placeholder="Branch"name="branch" required />
+        </div>
+
+        <div class="column">
+          <div class="input-box">
+            <label>Courses</label>
+            <input type="text" placeholder="Courses" name="course"required />
+          </div>
+          
+        </div>
+        
+          
+        <button>Submit</button>
+      </form>
+    </section>
+  </body>
+</html>

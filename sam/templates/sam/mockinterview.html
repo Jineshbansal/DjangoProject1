@@ -1,0 +1,47 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Alumni Mentorship</title>
+    <link rel="stylesheet" href="{%static 'sam/mockinterview.css'%}" type="text/css">
+</head>
+<body>
+    
+    
+    <main class="table">
+        <section class="table_header">
+            <h1 class="head">Your upcoming Mock interviews</h1>
+        </section>
+         <section class="table_body">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student_id</th>
+                        <th>Alum_id</th>
+                        
+                        <th>Domain</th>
+                        <th>Timing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for sa in sam%}
+                    {%if user.is_authenticated%}
+                    {% if user.email == sa.alum_id or user.email == sa.student_id %}
+                    <tr>
+                        <td>{{ sa.student_id }}</td>
+                        <td>{{ sa.alum_id }}</td>
+                        <td>{{ sa.domain }}</td>
+                        <td>{{ sa.timing }}</td>
+                    </tr>
+                {% endif %}
+                    {%endif%}
+                    {%endfor%}
+                </tbody>
+            </table>
+         </section>
+    </main>
+    
+</body>
+</html>

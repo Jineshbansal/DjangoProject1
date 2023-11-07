@@ -1,0 +1,59 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<!--divinectorweb.com-->
+<head>
+	<meta charset="UTF-8">
+	<title>Responsive Homepage Layout Water Ripples Effect</title>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+	<link href="{%static 'Authentication/style.css'%}" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div class="logo"><img alt="" src="{%static 'Authentication/logo.png'%}"></div>
+			<ul class="nav">
+				<li>
+					<a href="">Home</a>
+				</li>
+				<li>
+					<a href="activity/avf/">Alumni Visiting Program</a>
+				</li>
+				<li>
+					<a href="activity/sam/">Student Alumni Mentorship</a>
+				</li>
+				<li>
+					<a href="activity/mock/">Mock Interview</a>
+				</li>
+				{%if user.is_authenticated%}
+				<li>
+					<a href="/logout">LogOut</a>
+				</li>
+				
+				{%else%}
+				<li>
+					<a href="/registration">Login/registration</a>
+				</li>
+				{%endif%}
+			</ul>
+		</div>
+		<div class="content">
+			<h1>Student <span>Alumni Interaction Cell</span></h1>
+			<p>"Interacting with fellow students and mentors is not just a part of the educational journey; it's the heart of learning, growth, and lifelong connections."</p><!--lorem10-->
+			<a href="#">Contact US</a>
+		</div>
+	</header>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+	<script src="{%static 'Authentication/js/jquery.ripples-min.js'%}"></script>
+	<script>
+	       $('header').ripples({
+	           dropRadius: 30,
+	           perturbance: 0.03
+	       });
+	</script>
+	
+</body>
+</html>
+
+  

@@ -1,0 +1,46 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Alumni Mentorship</title>
+    <link rel="stylesheet" href="{%static 'sam/home.css'%}" type="text/css">
+</head>
+<body>
+    
+    <main class="table">
+        <section class="table_header">
+            <h1 class="head">Alum as a Faculty</h1>
+        </section>
+         <section class="table_body">
+            <table>
+                <thead>
+                    <tr>
+                        
+                        <th>Alum Id</th>
+                        <th>schedule</th>
+                        <th>location</th>
+                        <th>phone number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {%for sa in sam%}
+                
+                    
+                     <tr>
+                        
+                        <td>{{sa.alum_id}}</td>
+                        <td>{{sa.Schedule}}</td>
+                        <td>{{sa.location}}</td>
+                        <td>{{sa.phone_number}}</td>
+                     </tr>
+                
+                {%endfor%}
+                </tbody>
+            </table>
+         </section>
+    </main>
+    
+</body>
+</html>

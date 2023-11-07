@@ -1,0 +1,52 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Alumni Mentorship</title>
+    <link rel="stylesheet" href="{%static 'sam/avf.css'%}" type="text/css">
+</head>
+<body>
+    
+    
+    <main class="table">
+        <section class="table__header">
+            <h1 class="head">Your upcoming Mentorship program</h1>
+            {%if user.is_staff%}
+            <div class="adding"><a href="/activity/avf/add">Add</a></div>
+            {%endif%}
+        </section>
+         <section class="table_body">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Courses</th>
+                        <th>Alum Id</th>
+                        <th>Branch</th>
+                        <th>Semester</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for sa in sam%}
+                    {%if user.is_authenticated%}
+                        {%if user.email == alum_id%}
+                    <tr>
+                       <td>{{sa.courses}}</td>
+                       <td>{{sa.alum_id}}</td>
+                       <td>{{sa.branch}}</td>
+                       <td>4</td>
+
+                    </tr>
+                        {%endif%}
+                    {%endif%}
+                    {%endfor%}
+                
+                </tbody>
+            </table>
+         </section>
+    </main>
+    
+</body>
+</html>
